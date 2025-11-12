@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
-#import fkaart
+import fkaart
 import jarchetype
 #import espeler
 
