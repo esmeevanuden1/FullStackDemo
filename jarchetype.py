@@ -11,7 +11,7 @@ J_NAME = "yugiohdb"
 def start():
     load_dotenv()
     print(list_table())
-    return True
+    return list_table()
 
 def get_db():
     connection = mysql.connector.connect(
