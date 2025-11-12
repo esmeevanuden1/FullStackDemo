@@ -12,17 +12,17 @@ def hello_world():
 @app.route("/fkaart")
 def fkaart_route():
     result = fkaart.start()
-    return f"<p>Fkaart started: {result}</p>"
+    return result
 
 @app.route("/jarchetype")
 def jarchetype_route(): 
     result = jarchetype.start()
-    return f"<p>Jarchetype started: {result}</p>"
+    return result
 
 @app.route("/espeler")
 def espeler_route():
     result = espeler.start()
-    return f"<p>Espeler started: {result}</p>"
+    return result
 
 if __name__ == "__main__":
     app.run(debug=True)
