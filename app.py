@@ -1,9 +1,11 @@
 from flask import Flask
-import fkaart
+from flask_cors import CORS
+#import fkaart
 import jarchetype
-import espeler
+#import espeler
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/")
 def hello_world():
@@ -11,8 +13,8 @@ def hello_world():
 
 @app.route("/fkaart")
 def fkaart_route():
-    result = fkaart.start()
-    return result
+    #result = fkaart.start()
+    return True
 
 @app.route("/jarchetype")
 def jarchetype_route(): 
@@ -21,8 +23,8 @@ def jarchetype_route():
 
 @app.route("/espeler")
 def espeler_route():
-    result = espeler.start()
-    return result
+    #result = espeler.start()
+    return True
 
 if __name__ == "__main__":
     app.run(debug=True)
