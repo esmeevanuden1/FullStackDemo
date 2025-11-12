@@ -1,6 +1,8 @@
 import os
+import json
 import mysql.connector
 from dotenv import load_dotenv
+from flask import jsonify
 
 J_HOST = "127.0.0.1"
 J_PORT = "3306"
@@ -11,7 +13,8 @@ J_NAME = "yugiohdb"
 def start():
     load_dotenv()
     print(list_table())
-    return list_table()
+    print(jsonify_table())
+    return jsonify_table()
 
 def get_db():
     connection = mysql.connector.connect(
@@ -25,9 +28,13 @@ def get_db():
 
 def list_table():
     connection = get_db()
-    cursor = connection.cursor()
+    cursor = connection.cursor(dictionary=True)
     cursor.execute("SELECT * FROM archetype;")
     rows = cursor.fetchall()
     cursor.close()
     connection.close()
     return rows
+
+def jsonify_table():
+    rows = list_table()
+    return jsonify(rows)
