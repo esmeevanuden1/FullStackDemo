@@ -1,9 +1,11 @@
 from flask import Flask
+from flask_cors import CORS
 import fkaart
 import jarchetype
 import espeler
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/")
 def hello_world():
