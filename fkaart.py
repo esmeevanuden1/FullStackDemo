@@ -9,7 +9,7 @@ def krijgkaarten():
     conn = mysql.connector.connect(
         host="localhost",      # or your server IP
         user="root",           # your MySQL username
-        password="root",
+        password="",
         database="yugiohdb"
     )
 
@@ -29,3 +29,5 @@ def krijgkaarten():
     # Clean up
     cursor.close()
     conn.close()
+
+
