@@ -1,6 +1,6 @@
 def start():
     print("dit is felix")
-    return "dit is van felix"
+    return krijgkaarten()
 
 def krijgkaarten():
     import mysql.connector
@@ -23,11 +23,13 @@ def krijgkaarten():
     rows = cursor.fetchall()
 
     # Display the results
+    eindstring = "["
     for row in rows:
         print(row)
+        eindstring += "{\"naam\":\""+row[2]+"\"},"
 
     # Clean up
     cursor.close()
     conn.close()
-
+    return eindstring[:-1] +"]"
 
